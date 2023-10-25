@@ -206,7 +206,7 @@ def train(model, dataset):
     assert model.nb_classes == len(dataset.classes)
 
     # Define training parameters
-    num_epochs = 85 # 100
+    num_epochs = 85 # adapt according to batch
     batch_size = 200 # 128
     train_size = int(0.8 * len(dataset))
     val_size = len(dataset) - train_size
@@ -248,7 +248,7 @@ def free_memory():
 
 def summary():
     # TODO: print all information that you think may be relevant
-    print("Relevant information has been displayed during training.\n")
+    print("Relevant model informations have been displayed during training.\nPlease note: the training code was written following a train/validation scenario only with 80% train and 20% validation. No test data was additionally extracted, in order not to decrease too much  the size of the usable dataset which is not huge (around 10,000 images).\nIn the code for testing, a new test batch is randomly drawn from the dataset, which probabilistically includes some images used in training. The final win rate is thus overestimated.\nI made this obviously wrong choice because the numeric experiments are not supposed to be important here, and because I could not alter the code of the notebook to comply with the instructions. In a more formatable context, I would have designed the proxy used in the notebook myself and used them so this problem is not encountered (i.e. by creating variables and reusing them across the notebook, like a specific dataloader for testing).")
 
 
 
